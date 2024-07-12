@@ -16,23 +16,25 @@ const Footer = () => {
             py={4}
             p={16}
             justifyContent="space-between"
+            fontFamily='karla'
+            textStyle='footer'
           >
             <VStack>
-              <p>Doormat Navigation</p> <br></br>
-              <a src='/#highlights'>Home</a>
-              <a src='/#about'>About</a>
-              <a src='/#'>Reservations</a>
-              <a src='/#'>Order Online</a>
-              <a src='/#'>Login</a>
+              <p><b>Doormat Navigation</b></p> <br></br>
+              <a href='/#home'>Home</a>
+              <a href='/#about'>About</a>
+              <a href='/#reservations'>Reservations</a>
+              <a href='/#order'>Order Online</a>
+              <a href='/#login'>Login</a>
             </VStack>
             <VStack>
-              <p>Contact</p><br></br>
+              <p><b>Contact</b></p><br></br>
               <li>Address</li>
               <li>Phone Number</li>
               <li>Email</li>
             </VStack>
             <VStack>
-              <p>Social Media Links</p><br></br>
+              <p><b>Social Media Links</b></p><br></br>
               <li>Instagram</li>
               <li>Facebook</li>
             </VStack>
