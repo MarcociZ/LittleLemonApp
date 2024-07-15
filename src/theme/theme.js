@@ -9,7 +9,7 @@ const theme = extendTheme({
     },
     textStyles: {
         nav: {
-             fontSize: '20px',
+             fontSize: '18px',
              fontWeight: 'bold',
              color: '#495E57',
         },
