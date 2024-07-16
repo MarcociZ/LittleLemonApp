@@ -1,15 +1,13 @@
 import { Flex, HStack } from "@chakra-ui/react";
 import littleLemon from "../images/littleLemon.jpg";
 
-const Navigation = () => {
+const Navbar = () => {
     return (
         <Flex
             as="nav"
             bg="white"
-            maxWidth='930px'
-            maxHeight='130px'
             margin="0 auto"
-            gap='8px'
+            gap='10%'
             justifyContent="space-between"
 
         >
@@ -45,4 +43,4 @@ const Navigation = () => {
         </Flex>
     );
 };
-export default Navigation;
+export default Navbar;

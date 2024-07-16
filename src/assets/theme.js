@@ -29,7 +29,7 @@ const theme = extendTheme({
             color: '#333333',
         },
         footer: {
-            fontSize: '26px',
+            fontSize: '20px',
             fontWeight: 'regular',
             color: '#495E57',
         }
