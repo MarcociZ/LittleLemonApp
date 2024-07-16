@@ -5,7 +5,7 @@ import '@fontsource/karla'
 const theme = extendTheme({
     fonts: {
       karla: `'Karla', sans-serif`,
-      markazit: `'Markazi', sans-serif`,
+      markazi: `'Markazi', sans-serif`,
     },
     textStyles: {
         nav: {
@@ -22,6 +22,7 @@ const theme = extendTheme({
             fontSize: '32px',
             fontWeight: 'regular',
             color: '#EDEFEE',
+            lineHeight: '100%',
         },
         button: {
             fontSize: '34px',
