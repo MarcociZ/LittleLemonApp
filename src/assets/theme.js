@@ -19,13 +19,13 @@ const theme = extendTheme({
             color: '#F4CE14',
         },
         sentence: {
-            fontSize: '32px',
+            fontSize: '24px',
             fontWeight: 'regular',
             color: '#EDEFEE',
-            lineHeight: '100%',
+            lineHeight: '110%',
         },
         button: {
-            fontSize: '34px',
+            fontSize: '20px',
             fontWeight: 'bold',
             color: '#333333',
         },
