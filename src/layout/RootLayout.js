@@ -1,6 +1,7 @@
 import { Grid } from "@chakra-ui/react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import HeroSection from "../components/HeroSection";
 
 const RootLayout = () => {
     return (
@@ -17,6 +18,7 @@ const RootLayout = () => {
         >
 
             <Navbar area={'nav'}/>
+            <HeroSection area={'hero'} />
             <Footer area={'footer'}/>
 
         </Grid>
