@@ -1,22 +1,21 @@
-import { Flex, HStack } from "@chakra-ui/react";
+import { Flex, HStack, Hide } from "@chakra-ui/react";
 import littleLemon from "../images/littleLemon.jpg";
+import Hamburger from "./Hamburger";
 
 const Navbar = () => {
     return (
         <Flex
-            as="nav"
+            minH='20vh'
             bg="white"
-            margin="0 auto"
-            gap='10%'
-            justifyContent="space-between"
-
+            alignItems='center'
+            justifyContent='center'
         >
             <HStack
-                py={8}
-                spacing={16}
-                justify="center"
-                color='black'
+                as="nav"
+                spacing={6}
+                width='70%'
                 wrap='wrap'
+                justifyContent='space-between'
             >
                 <img
                     style={{
@@ -27,7 +26,12 @@ const Navbar = () => {
                     src={littleLemon}
                     alt="logo"
                 />
+                <Hide above='701px'>
+                    <Hamburger />
+                </Hide>
                 <HStack
+                    as='navbar'
+                    className="navbar"
                     spacing={8}
                     fontFamily='karla'
                     textStyle='nav'
@@ -38,9 +42,24 @@ const Navbar = () => {
                     <a href="/#" >RESERVATIONS</a>
                     <a href="/#" >ORDER ONLINE</a>
                     <a href="/#" >LOGIN</a>
+
                 </HStack>
+                <style>
+                    {
+                        `   .navbar {
+                                display: flex
+                            }
+
+                            @media (max-width: 700px) {
+                            .navbar {
+                                display: none}
+                            }
+
+                        `
+                    }
+                </style>
             </HStack>
-        </Flex>
+        </Flex >
     );
 };
 export default Navbar;
