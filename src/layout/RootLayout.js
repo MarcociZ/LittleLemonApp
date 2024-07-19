@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
 import HighlightSection from "../components/HighlightSection";
 
+
 const RootLayout = () => {
     return (
         <Grid

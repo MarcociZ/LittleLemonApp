@@ -1,6 +1,8 @@
 import { Flex, HStack, Hide } from "@chakra-ui/react";
 import littleLemon from "../images/littleLemon.jpg";
 import Hamburger from "./Hamburger";
+import { Link } from "react-router-dom";
+
 
 const Navbar = () => {
     return (
@@ -36,10 +38,10 @@ const Navbar = () => {
                     fontFamily='karla'
                     textStyle='nav'
                 >
-                    <a href="/#highlights">HOME</a>
+                    <Link to='/' className="nav-item">HOME</Link>
                     <a href="/#" >ABOUT</a>
                     <a href="/#" >MENU</a>
-                    <a href="/#" >RESERVATIONS</a>
+                    <Link to="/booking" className='nav-item'>RESERVATIONS</Link>
                     <a href="/#" >ORDER ONLINE</a>
                     <a href="/#" >LOGIN</a>
 
