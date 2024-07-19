@@ -4,14 +4,14 @@ import '@fontsource/karla'
 
 const theme = extendTheme({
     fonts: {
-      karla: `'Karla', sans-serif`,
-      markazi: `'Markazi', sans-serif`,
+        karla: `'Karla', sans-serif`,
+        markazi: `'Markazi', serif`,
     },
     textStyles: {
         nav: {
-             fontSize: '18px',
-             fontWeight: 'bold',
-             color: '#495E57',
+            fontSize: '18px',
+            fontWeight: 'bold',
+            color: '#495E57',
         },
         brand: {
             fontSize: '64px',
@@ -29,12 +29,22 @@ const theme = extendTheme({
             fontWeight: 'bold',
             color: '#333333',
         },
+        card: {
+            fontSize: '20px',
+            fontWeight: 'bold',
+            color: '#000000',
+        },
+        card2: {
+            fontSize: '16px',
+            fontWeight: 'regular',
+            color: '#000000',
+        },
         footer: {
             fontSize: '20px',
             fontWeight: 'regular',
             color: '#495E57',
         }
     }
-  })
-  
-  export default theme
+})
+
+export default theme

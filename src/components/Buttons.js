@@ -2,13 +2,12 @@ import { Box } from "@chakra-ui/react";
 
 
 
-const Buttons = (props) => {
+const Buttons = ({ children, ...buttonProps }) => {
 
     return (
         <Box
             as='button'
             height='40px'
-            width='300px'
             px='6'
             borderRadius='10px'
             bg='#F4CE14'
@@ -27,8 +26,9 @@ const Buttons = (props) => {
                 bg: '#EE9972',
                 color: '#F5F5F5',
             }}
+            {...buttonProps}
         >
-            {props.title}
+            {children}
 
         </Box>
     );

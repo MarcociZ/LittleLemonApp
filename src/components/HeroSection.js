@@ -15,11 +15,12 @@ const HeroSection = () => {
         >
             <HStack
                 as="herocontent"
-                position='relative'
-                spacing={20}
+                width='70%'
                 wrap={'wrap'}
+                spacing={20}
+                justifyContent='space-between'
             >
-                <Box maxW='440px' marginTop='-20px'>
+                <Box maxW='400px' marginTop='-20px'>
                     <VStack
                         spacing={8}
                         alignItems='baseline'
@@ -38,7 +39,7 @@ const HeroSection = () => {
                             aliqua consequat incididunt culpa Lorem occaecat enim deserunt cupidatat.
                         </Text>
                         <Spacer />
-                        <Buttons title='Reserve a Table' />
+                        <Buttons width='300px'>Reserve a Table</Buttons>
                     </VStack>
                 </Box>
 
