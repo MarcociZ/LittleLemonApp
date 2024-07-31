@@ -33,7 +33,7 @@ const Navbar = () => {
                 </Hide>
                 <HStack
                     as='navbar'
-                    className="navbar"
+                    className="Navbar"
                     spacing={8}
                     fontFamily='karla'
                     textStyle='nav'
@@ -46,20 +46,6 @@ const Navbar = () => {
                     <a href="/#" >LOGIN</a>
 
                 </HStack>
-                <style>
-                    {
-                        `   .navbar {
-                                display: flex
-                            }
-
-                            @media (max-width: 700px) {
-                            .navbar {
-                                display: none}
-                            }
-
-                        `
-                    }
-                </style>
             </HStack>
         </Flex >
     );

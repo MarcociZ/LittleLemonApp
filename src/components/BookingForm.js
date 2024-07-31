@@ -1,32 +1,32 @@
 import { useRef, useState } from "react";
 import { Box, VStack } from "@chakra-ui/react";
 
-const BookingForm = ({ defaultTimes, handleTimeChange, setDate }) => {
+const BookingForm = ({ defaultTimes, handleDateChange, setDate, submitForm }) => {
 
     const timeRef = useRef();
-    const [number, setNumber] = useState('');
-    const [ocassion, setOcassion] = useState('');
+    const [state, setState] = useState({
+        date: "",
+        time: "",
+        guests: "2",
+        ocassion: "",
+    });
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(event.target.date.value);
-        console.log(timeRef.current.value);
-        console.log(event.target.guests.value);
 
+
+    const handleDate = (e) => {
+        handleDateChange(setDate(e.target.value));
+        // console.log(e.target.value);
     };
 
-    const handleDateChange = (e) => {
-        e.preventDefault();
-        setDate(e.target.value);
-    };
+    const handleSubmit = () => {
+        submitForm(state);
+    }
 
-    const handleNumberChange = (event) => {
-        setNumber(event.target.value);
-    };
+    const handleChange = (e) => {
+        const value = e.target.value;
+        setState({ ...state, [e.target.name]: value });
 
-    const handleOcassionChange = (event) => {
-        setOcassion(event.target.value);
-    };
+    }
 
     return (
         <Box
@@ -50,13 +50,15 @@ const BookingForm = ({ defaultTimes, handleTimeChange, setDate }) => {
                         type="date"
                         name="date"
                         id="res-date"
-                        onChange={handleDateChange}
+                        value={state.date}
+                        onChange={handleChange}
                     />
                     <label htmlFor="res-time">Choose time</label>
                     <select
                         id="res-time"
                         ref={timeRef}
-                        onChange={handleTimeChange}
+                        value={state.time}
+                        onChange={handleChange}
                     >
                         {defaultTimes.map((time) => (
 
@@ -75,13 +77,13 @@ const BookingForm = ({ defaultTimes, handleTimeChange, setDate }) => {
                         min={1}
                         max={10}
                         id="guests"
-                        value={number}
-                        onChange={handleNumberChange}
+                        value={state.guests}
+                        onChange={handleChange}
                     />
                     <label htmlFor="occasion">Occasion</label>
                     <select id="occasion"
-                        value={ocassion}
-                        onChange={handleOcassionChange}
+                        value={state.ocassion}
+                        onChange={handleChange}
                     >
                         <option>Birthday</option>
                         <option>Anniversary</option>

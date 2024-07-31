@@ -1,5 +1,6 @@
 import { Grid } from "@chakra-ui/react";
 import { useReducer, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import BookingForm from "../components/BookingForm";
@@ -7,6 +8,9 @@ import BookingForm from "../components/BookingForm";
 
 
 const BookingPage = () => {
+    // const defaultTimes = ['17:00', '18:00', '19:00']
+
+    const navigate = useNavigate();
 
     const seededRandom = (seed) => {
         var m = 2 ** 35 - 31;
@@ -32,10 +36,18 @@ const BookingPage = () => {
         return result;
     };
 
+    const submitAPI = (formData) => {
+        return true;
+    };
 
-    const defaultTimes = ['17:00', '18:00', '19:00']
+    const submitForm = (formData) => {
+        console.log(formData);
 
+        if (submitAPI(formData)) {
+            navigate('/bookingconfirm');
+        };
 
+    }
 
     const initializeTimes = () => {
 
@@ -44,14 +56,15 @@ const BookingPage = () => {
     };
 
     const updateTimes = (state, action) => {
-
-      
-        return availableTimes;
+        const newItems = fetchAPI(new Date(action.date));
+        //console.log(new Date(action.date));
+        //console.log(newItems.count);
+        return newItems;
     };
 
 
     const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
-    const [date, setDate] = useState("");
+    const [date, setDate] = useState('');
 
 
     return (
@@ -67,9 +80,10 @@ const BookingPage = () => {
 
             <Navbar area={'nav'} />
             <BookingForm area={'booking'}
+                submitForm={submitForm}
                 defaultTimes={availableTimes}
                 setDate={setDate}
-                handleTimeChange={() => dispatch({ date: {} })}
+                handleDateChange={() => dispatch({ date: date })}
             />
             <Footer area={'footer'} />
 
