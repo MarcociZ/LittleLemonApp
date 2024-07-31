@@ -39,6 +39,11 @@ const theme = extendTheme({
             fontWeight: 'regular',
             color: '#000000',
         },
+        form: {
+            fontSize: '18px',
+            fontWeight: 'medium',
+            color: '#F4CE14',
+        },
         footer: {
             fontSize: '20px',
             fontWeight: 'regular',
