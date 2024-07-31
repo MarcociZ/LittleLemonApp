@@ -1,9 +1,17 @@
 import { Flex, Heading, VStack, Spacer, Image, Box, HStack, Text } from "@chakra-ui/react";
 import herophoto from "../assets/herophoto.jpg"
 import Buttons from "./Buttons";
+import { useNavigate } from "react-router-dom";
 
 
 const HeroSection = () => {
+
+    let navigate = useNavigate();
+    const routeChange = () => {
+        let path = `/booking`;
+        navigate(path);
+    }
+
     return (
         <Flex
             as="heroline"
@@ -39,7 +47,7 @@ const HeroSection = () => {
                             aliqua consequat incididunt culpa Lorem occaecat enim deserunt cupidatat.
                         </Text>
                         <Spacer />
-                        <Buttons width='300px'>Reserve a Table</Buttons>
+                        <Buttons width='300px' onClick={routeChange}>Reserve a Table</Buttons>
                     </VStack>
                 </Box>
 

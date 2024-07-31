@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen, queryHelpers } from "@testing-library/react";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+import BookingForm from './components/BookingForm';
+
+it('should correctly set default option', () => {
+  render(<BookingForm />)
+  expect(screen.getByRole('option', {value: '17:00'}).selected).toBeInTheDocument();
+})
