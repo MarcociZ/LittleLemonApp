@@ -16,7 +16,7 @@ const Hamburger = () => {
             >
                 <MenuButton
                     as={IconButton}
-                    className='humburger'
+                    className='hamburger'
                     aria-label='Options'
                     name='arrow-right'
                     variant='outline'

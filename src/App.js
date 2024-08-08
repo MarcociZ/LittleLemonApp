@@ -3,6 +3,7 @@ import RootLayout from './layout/RootLayout.js'
 import BookingPage from './pages/BookingPage.js';
 import theme from './assets/theme.js'
 import { Route, Routes } from "react-router-dom";
+import BookingConfirm from './components/BookingConfirm.js';
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path='/' element={<RootLayout />} />
         <Route path='/booking' element={<BookingPage />} />
+        <Route path='/bookingconfirm' element={<BookingConfirm />} />
       </Routes>
 
     </ChakraProvider >
