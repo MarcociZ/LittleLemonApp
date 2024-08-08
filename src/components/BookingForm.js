@@ -3,27 +3,29 @@ import { Box, VStack } from "@chakra-ui/react";
 
 const BookingForm = ({ defaultTimes, handleDateChange, setDate, submitForm }) => {
 
-    const timeRef = useRef();
     const [state, setState] = useState({
         date: "",
         time: "",
-        guests: "2",
-        ocassion: "",
+        guests: "1",
+        occasion: "Birthday",
     });
 
-
-
-    const handleDate = (e) => {
-        handleDateChange(setDate(e.target.value));
-        // console.log(e.target.value);
-    };
 
     const handleSubmit = () => {
         submitForm(state);
     }
 
     const handleChange = (e) => {
+        e.preventDefault();
         const value = e.target.value;
+
+        if (e.target.name === 'date') {
+            handleDateChange(setDate(e.target.value));
+            console.log(e.target.value);
+        }
+
+        //console.log(e.target.name);
+        //console.log(e.target.value);
         setState({ ...state, [e.target.name]: value });
 
     }
@@ -56,14 +58,14 @@ const BookingForm = ({ defaultTimes, handleDateChange, setDate, submitForm }) =>
                     <label htmlFor="res-time">Choose time</label>
                     <select
                         id="res-time"
-                        ref={timeRef}
-                        value={state.time}
-                        onChange={handleChange}
                     >
-                        {defaultTimes.map((time) => (
+                        {defaultTimes.map((time, index) => (
 
                             <option
-                                key={time}
+                                name="time"
+                                value={state.time}
+                                onChange={handleChange}
+                                key={index}
                             >{time}</option>
                         ))
                         }
@@ -73,7 +75,7 @@ const BookingForm = ({ defaultTimes, handleDateChange, setDate, submitForm }) =>
                     <input
                         type="number"
                         name="guests"
-                        placeholder={2}
+                        placeholder='Number of guests'
                         min={1}
                         max={10}
                         id="guests"
@@ -81,8 +83,10 @@ const BookingForm = ({ defaultTimes, handleDateChange, setDate, submitForm }) =>
                         onChange={handleChange}
                     />
                     <label htmlFor="occasion">Occasion</label>
-                    <select id="occasion"
-                        value={state.ocassion}
+                    <select
+                        id="occasion"
+                        name="occasion"
+                        value={state.occasion}
                         onChange={handleChange}
                     >
                         <option>Birthday</option>
