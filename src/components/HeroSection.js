@@ -47,7 +47,7 @@ const HeroSection = () => {
                             aliqua consequat incididunt culpa Lorem occaecat enim deserunt cupidatat.
                         </Text>
                         <Spacer />
-                        <Buttons width='300px' onClick={routeChange}>Reserve a Table</Buttons>
+                        <Buttons width='300px' onClick={routeChange} aria-label='resrve a table'>Reserve a Table</Buttons>
                     </VStack>
                 </Box>
 

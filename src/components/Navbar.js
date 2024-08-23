@@ -32,7 +32,7 @@ const Navbar = () => {
                     <Hamburger />
                 </Hide>
                 <HStack
-                    as='navbar'
+                    as='nav'
                     className="Navbar"
                     spacing={8}
                     fontFamily='karla'

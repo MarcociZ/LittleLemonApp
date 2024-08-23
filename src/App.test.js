@@ -1,8 +1,13 @@
-import { render, screen, queryHelpers } from "@testing-library/react";
+import { render, screen} from "@testing-library/react";
+import FormikBookimgForm from "./components/FormikBookingForm";
 
-import BookingForm from './components/BookingForm';
 
-it('should correctly set default option', () => {
-  render(<BookingForm />)
-  expect(screen.getByRole('option', {value: '17:00'}).selected).toBeInTheDocument();
-})
+
+describe('should correctly set default option', () => {
+
+  test('occasion option should be in document', () => {
+    render(<FormikBookimgForm defaultTimes={['17:00']} />)
+    expect(screen.getByRole('option', {name: 'Select time'})).toBeInTheDocument();
+  })
+
+});

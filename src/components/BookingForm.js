@@ -1,33 +1,47 @@
-import { useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, VStack } from "@chakra-ui/react";
+
 
 const BookingForm = ({ defaultTimes, handleDateChange, setDate, submitForm }) => {
 
-    const [state, setState] = useState({
-        date: "",
-        time: "",
-        guests: "1",
-        occasion: "Birthday",
-    });
+    const [newdate, setNewDate] = useState('');
+    const [time, setTime] = useState(defaultTimes[0]);
+    const [guests, setGuests] = useState('1');
+    const [occasion, setOccasion] = useState('Birthday');
 
+    useEffect(() => { setTime(defaultTimes[0]) }, [defaultTimes]);
 
-    const handleSubmit = () => {
-        submitForm(state);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        alert(JSON.stringify({ newdate, time, guests, occasion }, null, 2));
+        //submitForm({newdate, time, guests, occasion });
     }
 
-    const handleChange = (e) => {
+    const handleDate = (e) => {
         e.preventDefault();
         const value = e.target.value;
 
-        if (e.target.name === 'date') {
-            handleDateChange(setDate(e.target.value));
-            console.log(e.target.value);
-        }
+        setNewDate(value);
+        handleDateChange(setDate(value));
 
-        //console.log(e.target.name);
-        //console.log(e.target.value);
-        setState({ ...state, [e.target.name]: value });
+        console.log(newdate);
+    }
 
+    const handleTime = (e) => {
+        e.preventDefault();
+        setTime(e.target.value);
+        console.log(time);
+    }
+
+    const handleGuests = (e) => {
+        e.preventDefault();
+        setGuests(e.target.value);
+    }
+
+    const handleOccasion = (e) => {
+        e.preventDefault();
+        setOccasion(e.target.value);
     }
 
     return (
@@ -52,25 +66,37 @@ const BookingForm = ({ defaultTimes, handleDateChange, setDate, submitForm }) =>
                         type="date"
                         name="date"
                         id="res-date"
-                        value={state.date}
-                        onChange={handleChange}
+                        value={newdate}
+                        onChange={handleDate}
                     />
-                    <label htmlFor="res-time">Choose time</label>
+                    {!newdate ? (
+                        <p className="error">
+                            Please choose booking date
+                        </p>
+                    ) : null}
+                    <label htmlFor="time">Choose time</label>
                     <select
-                        id="res-time"
+                        name="time"
+                        id="time"
+                        value={time}
+                        onChange={handleTime}
                     >
                         {defaultTimes.map((time, index) => (
 
                             <option
+                                id='time'
                                 name="time"
-                                value={state.time}
-                                onChange={handleChange}
                                 key={index}
                             >{time}</option>
                         ))
                         }
 
                     </select>
+                    {!time ? (
+                        <p className="error">
+                            Please choose boking time
+                        </p>
+                    ) : null}
                     <label htmlFor="guests">Number of guests</label>
                     <input
                         type="number"
@@ -79,19 +105,29 @@ const BookingForm = ({ defaultTimes, handleDateChange, setDate, submitForm }) =>
                         min={1}
                         max={10}
                         id="guests"
-                        value={state.guests}
-                        onChange={handleChange}
+                        value={guests}
+                        onChange={handleGuests}
                     />
+                    {guests < 1 || guests > 10 ? (
+                        <p className="error">
+                            The number of guests should be at least 1 and no more than 10
+                        </p>
+                    ) : null}
                     <label htmlFor="occasion">Occasion</label>
                     <select
                         id="occasion"
                         name="occasion"
-                        value={state.occasion}
-                        onChange={handleChange}
+                        value={occasion}
+                        onChange={handleOccasion}
                     >
                         <option>Birthday</option>
                         <option>Anniversary</option>
                     </select>
+                    {!occasion ? (
+                        <p className="error">
+                            Pelase choose occasion
+                        </p>
+                    ) : null}
                     <input type="submit"
                         value="Make Your reservation"
                     ></input>
