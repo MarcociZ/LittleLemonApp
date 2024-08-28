@@ -21,7 +21,7 @@ const RootLayout = () => {
 
             <Navbar area={'nav'}/>
             <HeroSection area={'hero'} />
-            <HighlightSection area={'menu'} />
+            <HighlightSection  area={'menu'} />
             <Footer area={'footer'}/>
 
         </Grid>

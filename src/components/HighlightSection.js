@@ -34,9 +34,11 @@ const HighlightSection = () => {
         >
 
             <HStack
+                id='menu-section'
                 minH='20vh'
                 width='70%'
                 display='flex'
+                flexWrap={'wrap'}
                 marginBottom='4px'
                 spacing={20}
                 alignItems='end'
@@ -47,7 +49,6 @@ const HighlightSection = () => {
 
                 >
                     <Heading
-                        as='highlight'
                         fontFamily='markazi'
                         textStyle='brand'
                         color='#000000'
@@ -62,6 +63,7 @@ const HighlightSection = () => {
             <Box
                 width='70%'
                 display="flex"
+                flexWrap={'wrap'}
                 JustifyItems='stretch'
                 justifyContent='space-between'
 

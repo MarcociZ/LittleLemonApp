@@ -1,5 +1,5 @@
 import { Grid } from "@chakra-ui/react";
-import { useReducer, useState} from "react";
+import { useReducer, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -8,6 +8,7 @@ import BookingForm from "../components/BookingForm";
 
 
 const BookingPage = () => {
+
 
     const navigate = useNavigate();
 
@@ -41,9 +42,18 @@ const BookingPage = () => {
 
     const submitForm = (formData) => {
         console.log(formData);
+        const { newdate, time, guests, occasion } = formData;
+
 
         if (submitAPI(formData)) {
-            navigate('/bookingconfirm');
+            navigate('/bookingconfirm', {
+                state: {
+                    date: newdate,
+                    time: time,
+                    guests: guests,
+                    occasion: occasion
+                }
+            });
         };
 
     }
@@ -57,7 +67,7 @@ const BookingPage = () => {
     const updateTimes = (state, action) => {
         const newItems = fetchAPI(new Date(action.date));
         //console.log(action.date);
-       //console.log(state);
+        //console.log(state);
         //console.log(newItems.count);
         return newItems;
     };

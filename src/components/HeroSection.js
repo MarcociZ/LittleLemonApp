@@ -1,4 +1,4 @@
-import { Flex, Heading, VStack, Spacer, Image, Box, HStack, Text } from "@chakra-ui/react";
+import { Heading, Spacer, Image, Box, Text } from "@chakra-ui/react";
 import herophoto from "../assets/herophoto.jpg"
 import Buttons from "./Buttons";
 import { useNavigate } from "react-router-dom";
@@ -13,48 +13,61 @@ const HeroSection = () => {
     }
 
     return (
-        <Flex
-            as="heroline"
+        <Box
             bg="#495E57"
             margin='0'
-            align='center'
-            justify='center'
-            maxH={450}
+            height='406px'
+            width='100%'
+            display='flex'
+            alignItems='center'
         >
-            <HStack
-                as="herocontent"
+            <Box
+                id='hero-section'
                 width='70%'
-                wrap={'wrap'}
-                spacing={20}
+                height='346px'
+                margin='0 auto'
+                display='flex'
+                align-items='flex-start'
+                position='relative'
+                flexDirection='column'
                 justifyContent='space-between'
+                flexWrap='wrap'
             >
-                <Box maxW='400px' marginTop='-20px'>
-                    <VStack
-                        spacing={8}
-                        alignItems='baseline'
-                        justify='stretch'
-                    >
-                        <Heading as='h1' fontFamily='markazi' textStyle='brand'>
-                            Little Lemon
-                            <Text fontFamily='markazi' textStyle='sentence'>
-                                Chicago
-                            </Text>
-                        </Heading>
 
-                        <Spacer />
-                        <Text as='h3' fontFamily='karla' textStyle='sentence' noOfLines={5}>Duis non qui quis
-                            nostrud ipsum sit proident. Culpa deserunt consectetur irure ex
-                            aliqua consequat incididunt culpa Lorem occaecat enim deserunt cupidatat.
+                <Box
+                    spacing={8}
+                    display='flex'
+                    flexDirection='column'
+                    height='100%'
+                    width='422px'
+                    justifyContent='space-between'
+                    textAlign='left'
+                >
+                    <Heading as='h1' fontFamily='markazi' textStyle='brand'>
+                        Little Lemon
+                        <Text fontFamily='markazi' textStyle='sentence'>
+                            Chicago
                         </Text>
-                        <Spacer />
-                        <Buttons width='300px' onClick={routeChange} aria-label='resrve a table'>Reserve a Table</Buttons>
-                    </VStack>
+                    </Heading>
+
+                    <Spacer />
+                    <Text as='h3' fontFamily='karla' textStyle='sentence' noOfLines={5}>
+                        We are a family owned Mediterranean restaurant,
+                        focused on traditional recipes served with a modern twist.
+                    </Text>
+                    <Spacer />
+                    <Buttons width='300px' onClick={routeChange} aria-label='reserve a table'>Reserve a Table</Buttons>
                 </Box>
+                <Image
+                    height='440px'
+                    marginTop='0'
+                    marginRight='0'
+                    src={herophoto} alt='welcome!'
+                    borderRadius='16px'
+                />
+            </Box>
 
-                <Image height='450' marginTop='20' src={herophoto} alt='welcome!' borderRadius='10%' />
-            </HStack>
-
-        </Flex >
+        </Box >
 
     );
 }

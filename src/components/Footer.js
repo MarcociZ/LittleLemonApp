@@ -2,9 +2,22 @@ import { Box, Flex, HStack, VStack } from "@chakra-ui/react";
 import llFooter from "../images/llFooter.jpg"
 
 const Footer = () => {
+
+  const handleClick = (anchor) => () => {
+    const id = `${anchor}-section`;
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <Flex
       as="footer"
+      id="contact-section"
       bg="white"
       p='10'
       gap='10%'
@@ -29,11 +42,10 @@ const Footer = () => {
           <VStack
             alignItems='left'
           >
-            <a href='/#home'>Home</a>
-            <a href='/#about'>About</a>
-            <a href='/#reservations'>Reservations</a>
+            <a href='/#home' onClick={handleClick("home")}>Home</a>
+            <a href='/#about' onClick={handleClick("hero")}>About</a>
+            <a href='/booking'>Reservations</a>
             <a href='/#order'>Order Online</a>
-            <a href='/#login'>Login</a>
           </VStack>
         </Box>
         <Box
