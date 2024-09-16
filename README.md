@@ -23,7 +23,7 @@ Additional libraries used:
 -Chakra ui
 
 #Note
-After clonning the ropository installation of the node_modules is necessary
+After project cloning the installation of the node_modules is necessary
 
 ## Video
 Here is a demonstration of the project implementation.
